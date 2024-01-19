@@ -2,6 +2,7 @@
 
 % This function fits an ARIMA(r,1,r+1) state-space to a variable x, 
 % where x_t-x_{t-1} has stationary IRF (irf input). See documentation for details.
+% Requires the zTran toolbox (See README.md for details on how to include it in this package)
 
 function [A, Q, H] = arima_approx(irf, r)
     

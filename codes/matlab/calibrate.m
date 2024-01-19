@@ -38,8 +38,6 @@ end
 
 % This function returns the mean squared error value between the model moments and the data moments
 function err = objective(x, param, glob, options)
-	% This function computes the err between the model moments and the
-	% data moments
 	param.omega 	     = x(1);
 	param.deltas         = x(2);
 

@@ -1,7 +1,6 @@
  /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Purpose: Table A.2- Calibration of Cost of Attention (ω)
-* Last Modified on 09/27/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 
 use "$workingdir/K_and_alpha.dta", clear

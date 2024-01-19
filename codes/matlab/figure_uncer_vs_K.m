@@ -1,7 +1,7 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
 % This function generates the uncertainty vs number of competitors figure  (Fig. 1) in the paper.
-% "s" the structure of the solved model, "glob" the global variables, and "name" the name of the
+% "s" is the structure of the solved model, "glob" is the global variables, and "name" is the name of the
 % generated figure that is saved in the "out" folder.
 
 function [] = figure_uncer_vs_K(s, glob, name)

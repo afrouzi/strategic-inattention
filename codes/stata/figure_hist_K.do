@@ -1,7 +1,6 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Figure A.1 - Distribution of the Number of Competitors
-* Last Modified on 09/26/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 
 * Graph specs

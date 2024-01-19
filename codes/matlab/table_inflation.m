@@ -1,7 +1,7 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
 % This function generates the "inflation across models" table reported in the paper (Table 5).
-% "s" the structure of the solved model, "glob" the global variables, and "name" the name of the 
+% "s" is the structure of the solved model, "glob" is the global variables, and "name" is the name of the
 % generated figure that is saved in the "out" folder.
 
 function [] = table_inflation(s, glob, name)

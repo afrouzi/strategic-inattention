@@ -2,7 +2,7 @@
 
 % This function solves the RI problem of the paper for one oligopoly given the parameters 
 % in "p" using an ma (integrated ma) approximation of the inflation (price) response 
-% to monetary block. See documentation for details.
+% to monetary block. 
 
 function sol = solve_model_int_ma(p, options)
     

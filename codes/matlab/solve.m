@@ -2,6 +2,7 @@
 
 % This model solves the model given parameters in "param", global variables in "glob", and "options."
 % It can be called to either solved the model with ARIMA approximation or Integrated MA approximation.
+% ARIMA option requires z-Tran toolbox (See README.md for details on how to include it in this package)
 
 function out = solve(param, glob, options)
 

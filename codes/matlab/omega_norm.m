@@ -1,12 +1,7 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% This function calculates the effective cost of attention multipliers given deep parameters. 
-% The model objective in the paper is to minimize "B_K*(p - p*)^2 + omega_paper * I" where "B_j" is the
-% curvature value for sectors with K competitors. In the code we solve (p/sigma_u - p^*/sigma_u)^2 + ...
-% omega_code_K*I, where sigma_u is the standard deviation of monetary shock. The two are equivalent if 
-% omega_paper/(B_K * sigma_u^2) = omega_code_K. In particular, omega_paper = B_inf * omega_code_inf * sigma_u^2.
-% In the code we let omega denote omega_code_inf. So omega_code_K = omega_code_inf * B_inf / B_K. 
-% We call omega_norm_K = B_inf/B_K. To code is written to calculate omega_norm_K for two models:
+% This function calculates the effective cost of attention multipliers given deep parameters (B_inf/B_K in Eqns J.57-9)
+% We call omega_norm_K = B_inf/B_K. The code is written to calculate omega_norm_K for two models:
 %   1. gamma: the benchmark model in the paper
 %   2. atkeson-burstein: the model with Atkeson and Burstein (2010) preferences where sigma is elasticity of
 %      substitution between across sectors.   

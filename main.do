@@ -1,8 +1,7 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Master do file for STATA replication materials
-* Last Modified on: 09/27/2023
-* Last Modified by: Hassan Afrouzi
+* Note: Before running this file please maje sure the data for CGK (2018) and CGKR (2021) are included in the "input" folder (as described in the README.md file)
 *****************************************************************************************************/
 
 *****************************************************************************

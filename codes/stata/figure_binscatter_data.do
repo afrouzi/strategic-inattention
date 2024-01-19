@@ -1,7 +1,6 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Figure 1.- Data for the binscatter plot of subjective unc vs. 1/K
-* Last Modified on 09/27/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 use "$workingdir/master_file_processed.dta", clear
 

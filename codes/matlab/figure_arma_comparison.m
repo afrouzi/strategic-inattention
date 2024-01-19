@@ -1,10 +1,10 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% This function generates the capacity figures in the appendix reported for robustness exercises.
-% "s" the structure of the solved model, "glob" the global variables, and "name" the name of the
+% This function generates the figure for comparison of solutions under the int. MA truncation and ARIMA approx methods.
+% "s" is the structure of the solved model, "glob" is the global variables, and "name" is the name of the
 % generated figure that is saved in the "out" folder.
 
-function [] = figure_arima_comparison(s, s_arima, glob, name)
+function [] = figure_arma_comparison(s, s_arima, glob, name)
     fig = figure;
 
     subplot(2, 2, 1)

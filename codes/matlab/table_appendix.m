@@ -1,6 +1,6 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% Generate Robustness Table: Output and Inflation Across Model
+% Generate Robustness Tables in the Appendix: Output and Inflation Across Model
 function [] = table_appendix(s, glob, name)
 
 	% initialize table variables 

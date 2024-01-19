@@ -1,6 +1,6 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% This function externally calibrated the parameter gamma (degree of decreasing return to scale)
+% This function externally calibrates the parameter gamma (degree of decreasing return to scale)
 % to match the average degree of strategic complementarity in the model to the data in "glob.moments".
 
 function gamma = find_gamma(p,alpha_bar)

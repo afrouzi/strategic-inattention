@@ -1,7 +1,6 @@
  /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Tables I.1 and L.1.- Calibration of η and σ
-* Last Modified on 09/28/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 
 use "$workingdir/master_file_processed", clear

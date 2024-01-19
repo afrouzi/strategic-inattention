@@ -3,6 +3,7 @@
 % This function solves the RI problem of the paper for grid of parameters 
 % in "p" using an arma (arima) approximation of the inflation (price) response 
 % to monetary block. See documentation for details.
+% Requires z-Tran toolbox (See README.md for details on how to include it in this package)
 
 function out = solve_models_arima(p, glob, options)
 	% SOLVE_MODEL_GRID Solves the model on a grid of points

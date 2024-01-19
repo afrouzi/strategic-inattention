@@ -1,7 +1,6 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
-* Purpose: Keep only the variables we need
-* Last Modified on: 09/27/2023
+* Purpose: process data
 *****************************************************************************************************/
 
 * Wave 6: merge with industry classification --------

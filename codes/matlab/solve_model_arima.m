@@ -1,8 +1,8 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
 % This function solves the RI problem of the paper for one oligopoly given the parameters 
-% in "p" using an arma approximation of the inflation response to monetary block. 
-% See documentation for details.
+% in "p" using an arma approximation of the inflation response to monetary block in Appendix J.
+% Requires z-Tran toolbox (See README.md for details on how to include it in this package)
 
 function sol = solve_model_arima(p, options)
     

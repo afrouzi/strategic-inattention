@@ -1,6 +1,6 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% This is the main MATLAB file replicating the analysis for "Strategic Inattention, Inflation Dynamics, and the Non-neutrality of Money" and serves as the entry point for running the code in this project.
+% This is the main file for replicating all MATLAB generated results for "Strategic Inattention, Inflation Dynamics, and the Non-neutrality of Money."
 
 clc; clear; close all;
 
@@ -9,7 +9,7 @@ clc; clear; close all;
 % several fields that determine the behavior of the program. Each field can
 % be set to either 'Y' or 'N'. All models are already solved and their results
 % are saved in the "workingdir" folder, so these options are set to 'N' by default.
-% But you can switch any to 'Y', to resolve/recalibrate the corresponding
+% But you can switch any to 'Y' to resolve/recalibrate the corresponding
 % model.
 %
 % To replicate figures and tables without solving the models, you only need
@@ -23,26 +23,26 @@ replicate.AtkesonBurstein_H   = 'N'; % solve and calibrate model with Atkeson Bu
 replicate.Idiosyncratic_shock = 'N'; % solve and calibrate model with idiosyncratic shocks ('Y' or 'N')
 replicate.Robustness_Rho      = 'N'; % solve and calibrate model with alternative value of rho ('Y' or 'N')
 replicate.Robustness_Beta     = 'N'; % solve and calibrate model with alternative value of beta ('Y' or 'N')
-replicate.Solve_with_ARMA     = 'N'; % solve benchmark model with ARMA approximation ('Y' or 'N')
+replicate.Solve_with_ARMA     = 'N'; % solve benchmark model with ARMA approximation ('Y' or 'N') --- You will need to include the z-Tran package in Library for this. Please see README.md for details of how to do that.
 
 % Replicate figures and tables (no need to resolve/recalibrate models)
-replicate.Figures_Tables = 'Y'; % generate figures and tables as they appear in the paper ('Y' or 'N') -- - requires all models to be solved and calibrated
+replicate.Figures_Tables = 'Y'; % generate figures and tables as they appear in the paper ('Y' or 'N') --- requires solutions to all models to be saved in the "workingdir" folder (included by default)
 
-% Tests to verify accuracy of algorithm
-replicate.MMW_2018        = 'Y'; % replicate price setting model from Mackowiak, Matejka, and Wiederholt (2018) ('Y' or 'N')
+% Test to verify accuracy of algorithm
+replicate.MMW_2018        = 'N'; % replicate price setting model from Mackowiak, Matejka, and Wiederholt (2018) ('Y' or 'N')
 
 %% Add all codes to path
 addpath(genpath('./codes/')); % add codes to path
 
 %% Global variables
-glob.root        = pwd; % Root directory (X/strategic-inattention/)
-glob.input       = fullfile(glob.root, 'input'); % Input directory
-glob.workingdir  = fullfile(glob.root, 'workingdir'); % Input/output directory
-glob.outdir      = fullfile(glob.root, 'out'); % Output directory
-glob.fontname    = 'Palatino'; % Fontname
-glob.ncpu        = feature('numcores'); % Number of cores for parallelization
-glob.parallelize = 'Y'; % Parallelize? ('Y' or 'N')
-glob.plots.T     = 15; % Time horizon for plots
+glob.root        = pwd; % get path to root directory (X/strategic-inattention/)
+glob.input       = fullfile(glob.root, 'input'); % input directory
+glob.workingdir  = fullfile(glob.root, 'workingdir'); % working directory
+glob.outdir      = fullfile(glob.root, 'out'); % output directory
+glob.fontname    = 'Palatino'; % fontname
+glob.ncpu        = feature('numcores'); % number of cores for parallelization
+glob.parallelize = 'Y'; % parallelize? ('Y' or 'N')
+glob.plots.T     = 15; % time horizon for plots
 
 %% Calibration moments
 glob.moments.pi12_epi12  = 0.052; % coefficient of inflation nowcast on 1 year ago inflation forecast from Table A.2
@@ -80,9 +80,9 @@ switch replicate.Calibrate_Benchmark
         % Final gamma  parameters of benchmark models
         p.gamma      = find_gamma(p, glob.moments.alpha_bar); % curvature of production function
         p.alphas     = find_alpha(p, 'model', 'gamma'); % find strategic complementarities given gamma
-        p.omega_norm = omega_norm(p, 'model', 'gamma'); % find cost of information coefficient (B_inf/B_K) per Eqns J.56-8 in Appendix J.3 
+        p.omega_norm = omega_norm(p, 'model', 'gamma'); % construct cost of information normalization coefficient (B_inf/B_K) per Eqns J.57-9 in Appendix J.3 
 
-        p.omega = 4; % initial guess for omega_tilde (note that omega_hat is a normalized version of omega in the paper --- see Eqns J.56-8 in Appendix J.3)
+        p.omega = 4; % initial guess for omega_tilde (note that omega_hat is a normalized version of omega in the paper --- see Eqns J.57-9 in Appendix J.3)
 
         % Set solution method options
         options.solve.approx      = 'int_ma'; % method for solving the model
@@ -102,11 +102,11 @@ switch replicate.Calibrate_Benchmark
 
         % Set simulation options
         options.simulate.seed = 0;
-        options.simulate.Burn = 200;
-        options.simulate.N    = 5e4;
+        options.simulate.Burn = 200;    % number of burn-in periods
+        options.simulate.N    = 5e4;    % number of firms to simulate
 
         % Set calibration options
-        options.calibrate.delta = 'N';    % beta * delta is the effective discount rate in the code, but do not calibrate beta until Appendix M
+        options.calibrate.delta = 'N';    % beta * delta is the effective discount rate in the code, but set delta=1 and do not calibrate delta until Appendix M
 
         options.calibrate.forecast_w = 1; % ONLY target coefficient of inflation nowcast on previous infaltion forecast
         options.calibrate.uncer_w    = 0; % DO NOT target relationship of uncertainty and K
@@ -124,7 +124,7 @@ switch replicate.Calibrate_Benchmark
         clear p options bm;
 end
 
-% solve on a grid for figure a3
+% solve the model on a grid for figure a3
 switch replicate.Benchmark_Grid
     case 'Y'
         tic;
@@ -138,12 +138,12 @@ switch replicate.Benchmark_Grid
         p = bm.p;
         p.model = 'Benchmark (Grid of omegas)';
 
-        p.omega = 0.5:.25:10; % cost of information when B*var(q) = 1
+        p.omega = 0.5:.25:10; % grid for normalized cost of information (omega_tilde in Eqns J.57-9 in Appendix J.3)
         p.Tu    = 40;
         p.Tv    = 20;
 
         % Adjust solution method options
-        bm.options.solve.tol         = 1e-4; % lower tolerance because this model on the grid is solved only to confirm identification of omega
+        bm.options.solve.tol         = 1e-4; % lower tolerance because this model on the grid is solved only to confirm omega is sensitive to its identifying moment
 
         bm_grid = solve(p, glob, bm.options.solve);
         bm_grid = simulate(bm_grid, glob, bm.options.simulate);
@@ -292,7 +292,7 @@ switch replicate.Robustness_Rho
 
         p.omega = 1.6;
         p.rho   = 0.23;
-        p.Tu    = 40; % with rho small inflation process is not very persistent
+        p.Tu    = 40; % with rho small inflation process is not very persistent so we can truncate IRFs at smaller Tu
 
         options = bm.options;
 

@@ -1,7 +1,6 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Footnotes 57 and 58. Calibration of rho and sigma_u
-* Last Modified on 09/27/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 
 * Note: The file “hm5.xlsx” was downloaded from 

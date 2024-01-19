@@ -1,7 +1,6 @@
 /****************************************************************************************************
 * Afrouzi (2023): Strategic Inattention, Inflation Dynamics and the Non-Neutrality of Money
 * Figure A2.- Distributions of the Size of Firms’ Nowcast Errors
-* Last Modified on 09/27/2023 by Hassan Afrouzi
 *****************************************************************************************************/
 
 use "$workingdir/master_file_processed.dta", clear

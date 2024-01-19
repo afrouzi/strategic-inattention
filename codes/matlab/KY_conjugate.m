@@ -1,7 +1,7 @@
 % Afrouzi (2023): Strategic Inattention, Inflation Dynamics, and the Non-Neutrality of Money
 
-% This function solves the Kalman-Yakubovich equation X = BXM'+C for the matrix X. It is only
-% used as a short-hand to calculate the IRFs of the higher order beliefs in Figure A7.
+% This function solves the Kalman-Yakubovich equation X = BXM'+C for the matrix X. (this is only
+% used to calculate the IRFs of the higher order beliefs in Figure A7.)
 
 function X = KY_conjugate(B, M, C)
     % Get the size of the matrix
